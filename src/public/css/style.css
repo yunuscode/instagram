@@ -1,0 +1,14 @@
+body {
+  background-color: #fafafa;
+}
+
+.registration-slogan {
+  font-size: 19px;
+}
+
+.bdate-image {
+  height: 100px !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+/*# sourceMappingURL=style.css.map */

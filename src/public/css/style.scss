@@ -1,0 +1,19 @@
+$backgroundColor: #fafafa;
+
+body {
+    background-color: $backgroundColor;
+}
+
+
+.registration {
+    &-slogan {
+        font-size: 19px;
+    }
+}
+
+.bdate {
+    &-image {
+        height: 100px!important;
+        object-fit: contain;
+    }
+}
