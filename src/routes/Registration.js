@@ -7,6 +7,16 @@ const Joi = require('joi')
 
 const router = Router()
 
+router.use(AuthMiddleware)
+
+router.use(async (req, res, next) => {
+    if(req.user){
+        res.redirect('/')
+        return 0
+    }
+    next()
+})
+
 const RegistrationValidation = new Joi.object({
     phone: Joi.number()
         .min(10000)

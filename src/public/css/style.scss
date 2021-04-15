@@ -17,3 +17,19 @@ body {
         object-fit: contain;
     }
 }
+
+.navbar {
+    &-search {
+        &::placeholder {
+            text: {
+                align: center;
+            }
+        }
+    }
+}
+
+.profile {
+    &-label {
+        cursor: pointer;
+    }
+}

@@ -38,3 +38,4 @@ Fs.readdir(RoutesPath, (err, files) => {
     })
 })
 
+application.get('/', (_, res) => res.redirect('/profile'))

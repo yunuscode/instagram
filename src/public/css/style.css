@@ -11,4 +11,24 @@ body {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
+.navbar-search::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.navbar-search:-ms-input-placeholder {
+  text-align: center;
+}
+
+.navbar-search::-ms-input-placeholder {
+  text-align: center;
+}
+
+.navbar-search::placeholder {
+  text-align: center;
+}
+
+.profile-label {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

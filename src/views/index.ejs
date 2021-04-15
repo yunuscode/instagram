@@ -1,9 +1,109 @@
 <%- include('parts/header') %>
+<%- include('parts/navbar') %>
 
-<section>
+<% var photo = photo ? `/avatar/${user._id}.jpg` : '/avatar/notfound.jpg'%>
+
+<section class="my-4 py-4">
     <div class="container">
-        <div class="text-center"><%= title %></div>
+        <div class="row w-75 mx-auto align-items-center">
+            <div class="col-3">
+                <label class="profile-label">
+                    <input id="profile_photo" type="file" accept="image/*" class="visually-hidden">
+                    <img src="<%= photo %>" class="rounded-circle" width="150" height="150" alt="Avatar">
+                </label>
+            </div>
+            <div class="col-6 p-lg-4">
+                <header class="d-flex align-items-center">
+                    <p class="fs-2 m-0">muhammadyunusuz</p>
+                    <a class="btn ms-4 border" href="./edit">Edit profile</a>
+                    <button class="btn ms-2">
+                        <img src="/img/settings.svg" alt="Settings icon" width="30" height="30">
+                    </button>
+                </header>
+                <div class="d-flex mt-2">
+                    <p class="m-0 btn">6 posts</p>
+                    <a class="btn" href="./followers">10 followers</a>
+                    <a class="btn" href="./following">10 following</a>
+                </div>
+                <div class="mt-4">
+                    <p class="fs-4 m-0">Muhammadyunus</p>
+                    <p class="m-0">Bio...</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <nav>
+            <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                <button class="nav-link active d-flex align-items-center" id="nav-home-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                    <img src="/img/grid.svg" alt="Grid icon" width="14">
+                    <p class="m-0 ms-2">Posts</p>
+                </button>
+                <button class="nav-link ms-2" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                <button class="nav-link ms-2" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                <button class="nav-link ms-2" id="nav-upload-tab" data-bs-toggle="tab" data-bs-target="#nav-upload"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Post upload</button>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row mt-4 pt-4">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card">
+                            <a class="d-block" href="/posts/id">
+                                <img src="https://picsum.photos/300" alt="User image" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card">
+                            <a class="d-block" href="/posts/id">
+                                <img src="https://picsum.photos/300" alt="User image" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="card">
+                            <a class="d-block" href="/posts/id">
+                                <img src="https://picsum.photos/300" alt="User image" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            <div class="tab-pane fade" id="nav-upload" role="tabpanel" aria-labelledby="nav-upload-tab">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                        <form action="/upload" class="mt-4 pt-4" method="POST">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" name="body"
+                                    id="floatingTextarea"></textarea>
+                                <label for="floatingTextarea">Post body</label>
+                            </div>
+                            <div class="my-3">
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                            <button class="mt-4 btn btn-primary w-100 p-2">Publish post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/js/profile.js"></script>
 <%- include('parts/footer') %>
