@@ -12,21 +12,29 @@
                     <img src="<%= photo %>" class="rounded-circle" width="150" height="150" alt="Avatar">
                 </label>
             </div>
+            <% var thisUser, oldFollow%>
             <div class="col-6 p-lg-4">
                 <header class="d-flex align-items-center">
-                    <p class="fs-2 m-0">muhammadyunusuz</p>
+                    <p class="fs-2 m-0"><%= user.username %></p>
+                    <% if(thisUser._id == user._id ) {%>
                     <a class="btn ms-4 border" href="./edit">Edit profile</a>
                     <button class="btn ms-2">
                         <img src="/img/settings.svg" alt="Settings icon" width="30" height="30">
                     </button>
+                    <% } else { %>
+                    <button type="button" id="follow_button" class="ms-4 btn <%= oldFollow ? "btn-secondary" : "btn-primary"%> " data-username="<%= user.username %>">
+                        <%= oldFollow ? "Unfollow" : "Follow"%> 
+                    </button>
+                    <% } %>
                 </header>
                 <div class="d-flex mt-2">
                     <p class="m-0 btn">6 posts</p>
-                    <a class="btn" href="./followers">10 followers</a>
-                    <a class="btn" href="./following">10 following</a>
+                    <button data-bs-toggle="modal"
+                    id="followersButton" data-bs-target="#followers" data-username="<%= user.username %>" class="btn">10 followers</button>
+                    <button class="btn">10 following</button>
                 </div>
                 <div class="mt-4">
-                    <p class="fs-4 m-0">Muhammadyunus</p>
+                    <p class="fs-4 m-0"><%= user.name %></p>
                     <p class="m-0">Bio...</p>
                 </div>
             </div>
@@ -104,6 +112,22 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="followers" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Followers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="/js/profile.js"></script>
 <%- include('parts/footer') %>
